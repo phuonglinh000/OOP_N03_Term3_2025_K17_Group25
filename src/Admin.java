@@ -8,10 +8,10 @@ public class Admin {
     }
 
     public void addBook(Book book) {
-        System.out.println("Admin " + name + " vừa thêm sách: " + book.title);
+        System.out.println("Admin " + name + "thêm sách: " + book.title);
     }
 
     public void removeBook(Book book) {
-        System.out.println("Admin " + name + " vừa xóa sách: " + book.title);
+        System.out.println("Admin " + name + " xóa sách: " + book.title);
     }
 }
