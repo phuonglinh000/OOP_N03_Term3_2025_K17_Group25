@@ -1,17 +1,33 @@
 # Quan ly Sach
-Cl
+
 # 03 đối tượng
 
-User
 
-Book
 
-User_Book
 
-# Class
 
-```
-Class User {
-  String role;
+class Book {
+  String id;
+  String title;
+  String author;
+  String category;
+  int availableCopies;
 }
-```
+
+
+class Librarian {
+  String id;
+  String name;
+  String email;
+  String workingShift;
+  String phoneNumber;
+}
+
+class User {
+  String id;
+  String name;
+  String email;
+  String role; // "student", "teacher"
+}
+
+
