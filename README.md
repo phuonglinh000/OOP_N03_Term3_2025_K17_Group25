@@ -5,7 +5,7 @@
 
 
 
-
+## câu 2  : 
 class Book {
   String id;
   String title;
@@ -27,8 +27,36 @@ class User {
   String email;
   String role; 
 }
+## câu 3 : 
+src 
+    Book.java 
+    User.java
+    Admin.java
+test 
+    BookTest.java
+    AdminTest.java
+    UserTest.java
+README.md
 
 câu 4 : 
+public class Admin {
+    String adminId;
+    String name;
+
+    public Admin(String adminId, String name) {
+        this.adminId = adminId;
+        this.name = name;
+    }
+
+    public void addBook(Book book) {
+        System.out.println("Admin " + name + " thêm sách: " + book.title);
+    }
+
+    public void removeBook(Book book) {
+        System.out.println("Admin " + name + "  xóa sách: " + book.title);
+    }
+}
+
 public class User {
     String id;
     String name; 
@@ -47,11 +75,31 @@ public class User {
     }
 }
 
-public class UserTest {
-    public static void main(String[] args) {
-       
-        User user = new User("01", "Bạch Phương Linh", "linh@gmail.com");
-        
-        user.Info();
+public class Book {
+    String bookId;
+    String title;
+    String author;
+
+    public Book(String bookId, String title, String author) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+    }
+
+    public void displayBook() {
+        System.out.println("Mã sách: " + bookId);
+        System.out.println("Tên sách: " + title);
+        System.out.println("Tác giả: " + author);
     }
 }
+
+## câu 5 : 
+public class UserTest { public static void main(String[] args) {
+
+    User user = new User("01", "Bạch Phương Linh", "linh@gmail.com");
+    
+    user.Info();
+}
+}
+
+
