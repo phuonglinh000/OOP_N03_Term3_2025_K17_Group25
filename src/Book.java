@@ -10,8 +10,8 @@ public class Book {
     }
 
     public void displayBook() {
-        System.out.println("Mã sách: " + bookId);
-        System.out.println("Tên sách: " + title);
-        System.out.println("Tác giả: " + author);
+        System.out.println("Mã sách : " + bookId);
+        System.out.println("Tên sách : " + title);
+        System.out.println("Tác giả : " + author);
     }
 }
