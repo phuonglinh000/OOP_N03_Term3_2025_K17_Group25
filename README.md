@@ -43,6 +43,21 @@ test (
     UserTest.java)
 README.md
 ```
+
+
+Chương trình chính App.java (Main Program)
+```
+public class App {
+    public static void main(String[] args){
+        System.out.println("test main");
+
+        ex21_QA.test();
+        TestEx3_QA.test();
+
+    }
+}
+
+```
 # Chi tiết kiểu mô tả của các đối tượng
 ```
 public class Admin {
