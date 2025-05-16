@@ -5,6 +5,7 @@ public class App {
         System.out.println("test main");
 
         ex21_QA.test();
+        TestEx3_QA.test();
 
     }
 }
