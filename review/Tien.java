@@ -1,5 +1,7 @@
 package review;
 
+public class Tien{
+
 public enum Tien{
     mot_nghin,
     hai_nghin,
@@ -10,3 +12,4 @@ public enum Tien{
 }
 
 
+}

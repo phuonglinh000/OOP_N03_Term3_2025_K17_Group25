@@ -6,3 +6,5 @@ public class ex21 {
             System.out.println(t + ", ordinal " + t.ordinal());
     }
 }
+
+
