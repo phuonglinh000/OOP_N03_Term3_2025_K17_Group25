@@ -5,7 +5,8 @@
 
 
 
-## câu 2  : 
+## Các đối tượng quản lý sách  : 
+```
 class Book {
   String id;
   String title;
@@ -27,7 +28,11 @@ class User {
   String email;
   String role; 
 }
-## câu 3 : 
+```
+
+
+## Folder Source Code của Project: 
+```
 src (
     Book.java 
     User.java
@@ -37,9 +42,24 @@ test (
     AdminTest.java
     UserTest.java)
 README.md
+```
 
-câu 4 : 
 
+Chương trình chính App.java (Main Program)
+```
+public class App {
+    public static void main(String[] args){
+        System.out.println("test main");
+
+        ex21_QA.test();
+        TestEx3_QA.test();
+
+    }
+}
+
+```
+# Chi tiết kiểu mô tả của các đối tượng
+```
 public class Admin {
     String adminId;
     String name;
@@ -93,14 +113,25 @@ public class Book {
         System.out.println("Tác giả: " + author);
     }
 }
+```
+## Kiểm định (test)
+```
+public class TestEx3_QA {
 
-## câu 5 : 
-public class UserTest { public static void main(String[] args) {
+    // bien
 
-    User user = new User("01", "Bạch Phương Linh", "linh@gmail.com");
-    
-    user.Info();
+    // phuongthuc
+
+    public static void test() {
+
+        ex3_QA obj = new ex3_QA();
+
+        System.out.println("test khoi tao object kieu ex3_QA"+obj);
+        User u = new User("id01", "Quynh Anh", "qa@gmail.com");
+        u.Info();
+    }
+
 }
-}
 
+```
 
