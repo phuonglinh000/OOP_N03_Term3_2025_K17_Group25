@@ -1,6 +1,6 @@
-package debug_ex3;
+package debugex3;
 
-public class Debug {
+public class Debugex3 {
     public static void debug(String message) {
         System.out.println("DEBUG: " + message);
     }
