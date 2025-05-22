@@ -137,4 +137,6 @@ public class TestEx3_QA {
 ## Class Diagram
 ![image](https://github.com/user-attachments/assets/84a78b2f-ab84-4a76-b70e-d883113c97d8)
 
+## activity 
+![image](https://github.com/user-attachments/assets/fb70a6a7-a151-489b-b711-40dbe9391564)
 
