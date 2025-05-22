@@ -134,4 +134,7 @@ public class TestEx3_QA {
 }
 
 ```
+## Class Diagram
+![image](https://github.com/user-attachments/assets/84a78b2f-ab84-4a76-b70e-d883113c97d8)
+
 
