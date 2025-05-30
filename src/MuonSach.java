@@ -1,15 +1,19 @@
-public class MuonSach {
-    private String maSach;
-    private String maThanhVien;
-    private LocalDate ngayMuon;
-    private LocalDate ngayHetHan;
-}
+//package src;
 
-public MuonSach(String maSach, String maThanhVien) {
-      this.maSach = maSach;
-      this.maThanhVien = maThanhVien;
+import java.io.Serializable;
+import java.time.LocalDate;
+
+public class MuonSach implements Serializable {
+   private String maSach;
+   private String maThanhVien;
+   private LocalDate ngayMuon;
+   private LocalDate ngayHetHan;
+
+   public MuonSach(String var1, String var2) {
+      this.maSach = var1;
+      this.maThanhVien = var2;
       this.ngayMuon = LocalDate.now();
-      this.ngayHetHan = this.ngayMuon.plusDays(14L);
+      this.ngayHetHan = this.ngayMuon.plusDays(15);
    }
 
    public String getMaSach() {
@@ -32,8 +36,13 @@ public MuonSach(String maSach, String maThanhVien) {
       this.ngayHetHan = var1;
    }
 
+   @Override
    public String toString() {
       return "Ma thanh vien: " + this.maThanhVien + " | Ma sach: " + this.maSach + " | Ngay cho muon: " + this.ngayMuon + " | Ngay het han: " + this.ngayHetHan;
+   }
+
+   public static void test(){
+
    }
 }
 
