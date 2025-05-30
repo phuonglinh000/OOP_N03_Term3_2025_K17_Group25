@@ -162,3 +162,42 @@ public class BookList {
 ## activity datagram 
 
 ![image](https://github.com/user-attachments/assets/b9061d96-6193-466b-b862-cd8b7d0bdfe1)
+
+## 3 phương thức hoạt động chính 
+    + Tìm kiếm sách 
+    + Cho mượn sách 
+    + Thêm sách
+
+## Mượn sách 
+   public MuonSach(String var1, String var2) {
+      this.maSach = var1;
+      this.maThanhVien = var2;
+      this.ngayMuon = LocalDate.now();
+      this.ngayHetHan = this.ngayMuon.plusDays(14L);
+   }
+
+   public String getMaSach() {
+      return this.maSach;
+   }
+
+   public String getMaThanhVien() {
+      return this.maThanhVien;
+   }
+
+   public LocalDate getNgayMuon() {
+      return this.ngayMuon;
+   }
+
+   public LocalDate getNgayHetHan() {
+      return this.ngayHetHan;
+   }
+
+   public void setNgayHetHan(LocalDate var1) {
+      this.ngayHetHan = var1;
+   }
+
+   public String toString() {
+      return "Ma thanh vien: " + this.maThanhVien + " | Ma sach: " + this.maSach + " | Ngay cho muon: " + this.ngayMuon + " | Ngay het han: " + this.ngayHetHan;
+   }
+}
+
