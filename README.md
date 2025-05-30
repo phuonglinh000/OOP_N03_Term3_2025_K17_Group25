@@ -1,4 +1,4 @@
-# Quan ly Sach
+# Quan ly thu vien sach 
 
 # 03 đối tượng
 
@@ -138,16 +138,79 @@ public class TestEx3_QA {
 ![image](https://github.com/user-attachments/assets/84a78b2f-ab84-4a76-b70e-d883113c97d8)
 
 ## thêm sách
-import java.util.ArrayList;
-
-public class BookList {
-
-    ArrayList<Book> st = new ArrayList<Book>();
-
-    public ArrayList<Book> addBook(Book b) {
-
-        b.add(b);
-        return b;
-
+public class Book {
+    String title;
+    String author;
+    int year;
+    
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
     }
+}
+
+import java.util.ArrayList;
+public class BookList {
+    ArrayList<Book> books = new ArrayList<>();
+
+    public ArrayList<Book> addBook(Book book) {
+        books.add(book);
+        return books;
+    }
+}
+## activity datagram 
+
+![image](https://github.com/user-attachments/assets/b9061d96-6193-466b-b862-cd8b7d0bdfe1)
+
+## 3 phương thức hoạt động chính 
+    + Tìm kiếm sách 
+    + Cho mượn sách 
+    + Thêm sách
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+public class MuonSach implements Serializable {
+   private String maSach;
+   private String maThanhVien;
+   private LocalDate ngayMuon;
+   private LocalDate ngayHetHan;
+
+// khởi tạo đối tượng MuonSach mới với mã sách và mã thành viên.
+   public MuonSach(String var1 , String var2) {
+      this.maSach = var1 ;
+      this.maThanhVien = var2;
+      this.ngayMuon = LocalDate.now();
+      this.ngayHetHan = this.ngayMuon.plusDays(14L);
+   }
+
+// Trả về mã sách.
+   public String getMaSach() {
+      return this.maSach;
+   }
+
+// Trả về mã thành viên.
+
+   public String getMaThanhVien() {
+      return this.maThanhVien;
+   }
+// Trả về ngày mượn.
+    public LocalDate getNgayMuon() {
+      return this.ngayMuon;
+   }
+ // Trả về ngày hết hạn.
+   public LocalDate getNgayHetHan() {
+      return this.ngayHetHan;
+   }
+// Cập nhật ngày hết hạn mượn sách.   
+    public void setNgayHetHan(LocalDate var1) {
+    this.ngayHetHan = var1;
+   }
+
+//Trả về chuỗi mô tả đầy đủ thông tin của phiếu mượn sách
+   public String toString() {
+      return "Ma thanh vien: " + this.maThanhVien + " | Ma sach: " + this.maSach + " | Ngay cho muon: " + this.ngayMuon + " | Ngay het han: " + this.ngayHetHan;
+   }
+}
 
