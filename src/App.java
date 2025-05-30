@@ -7,6 +7,7 @@ public class App {
         ex21_QA.test();
         TestEx3_QA.test();
         BookListTest.test();
+        UserTest.test();
 
 
     }
