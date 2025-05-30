@@ -7,6 +7,36 @@ public class BookList {
         books.add(book);
         return books;
     }
+<<<<<<< HEAD
 }
 
 
+=======
+
+    public ArrayList<Book> geteditBook(String bookId, String newTitle, String newAuthor) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).bookId.equals(bookId)) {
+                books.get(i).title = newTitle;
+                books.get(i).author = newAuthor;
+            }
+        }
+        return books;
+    }
+
+    public ArrayList<Book> getdeleteBook(String bookId) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).bookId.equals(bookId)) {
+                books.remove(i);
+                break;
+            }
+        }
+        return books;
+    }
+
+    public void printBookList() {
+        for (Book b : books) {
+            System.out.println("Mã sách: " + b.bookId + " | Tên sách: " + b.title + " | Tác giả: " + b.author);
+        }
+    }
+}
+>>>>>>> 09b96dfb61fed5e76ab930de56deb073ea293579
