@@ -7,6 +7,11 @@ public class BookList {
         books.add(book);
         return books;
     }
+<<<<<<< HEAD
+}
+
+
+=======
 
     public ArrayList<Book> geteditBook(String bookId, String newTitle, String newAuthor) {
         for (int i = 0; i < books.size(); i++) {
@@ -34,3 +39,4 @@ public class BookList {
         }
     }
 }
+>>>>>>> 09b96dfb61fed5e76ab930de56deb073ea293579
