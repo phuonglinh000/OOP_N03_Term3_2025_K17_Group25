@@ -168,49 +168,12 @@ public class BookList {
     + Cho mượn sách 
     + Thêm sách
 
-import java.io.Serializable;
-import java.time.LocalDate;
-
-public class MuonSach implements Serializable {
-   private String maSach;
-   private String maThanhVien;
-   private LocalDate ngayMuon;
-   private LocalDate ngayHetHan;
-
-// khởi tạo đối tượng MuonSach mới với mã sách và mã thành viên.
-   public MuonSach(String var1 , String var2) {
-      this.maSach = var1 ;
-      this.maThanhVien = var2;
-      this.ngayMuon = LocalDate.now();
-      this.ngayHetHan = this.ngayMuon.plusDays(14L);
-   }
-
-// Trả về mã sách.
-   public String getMaSach() {
-      return this.maSach;
-   }
-
-// Trả về mã thành viên.
-
-   public String getMaThanhVien() {
-      return this.maThanhVien;
-   }
-// Trả về ngày mượn.
-    public LocalDate getNgayMuon() {
-      return this.ngayMuon;
-   }
- // Trả về ngày hết hạn.
-   public LocalDate getNgayHetHan() {
-      return this.ngayHetHan;
-   }
-// Cập nhật ngày hết hạn mượn sách.   
-    public void setNgayHetHan(LocalDate var1) {
-    this.ngayHetHan = var1;
-   }
-
-//Trả về chuỗi mô tả đầy đủ thông tin của phiếu mượn sách
-   public String toString() {
-      return "Ma thanh vien: " + this.maThanhVien + " | Ma sach: " + this.maSach + " | Ngay cho muon: " + this.ngayMuon + " | Ngay het han: " + this.ngayHetHan;
-   }
-}
+## Miêu tả phương thức 
+public MuonSach(String maSach, String maThanhVien, String ngayMuon, String ngayHetHan)
+public String getMaSach()                  //Phương thức getMaSach
+public String getMaThanhVien()            //Phương thức getMaThanhVien
+public String getNgayMuon()              //Phương thức getNgayMuon
+public String getNgayHetHan()           //Phương thức getNgayHetHan
+public void setNgayHetHan(String ngayHetHan)              //Phương thức setNgayHetHan
+public String toString()                        //Phương thức toString
 
