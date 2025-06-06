@@ -171,15 +171,20 @@ public class BookList {
 ## Miêu tả phương thức 
 public MuonSach(String maSach, String maThanhVien, String ngayMuon, String ngayHetHan)
 //Phương thức getMaSach
-public String getMaSach()    
+public String getMaSach()   
+
 //Phương thức getMaThanhVien
-public String getMaThanhVien()          
+public String getMaThanhVien()  
+
  //Phương thức getNgayMuon
-public String getNgayMuon()             
+public String getNgayMuon()    
+
 //Phương thức getNgayHetHan
-public String getNgayHetHan()    
+public String getNgayHetHan()  
+
  //Phương thức setNgayHetHan
 public void setNgayHetHan(String ngayHetHan)   
+
  //Phương thức toString
 public String toString()                       
 
