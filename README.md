@@ -177,3 +177,5 @@ public String getNgayHetHan()           //Phương thức getNgayHetHan
 public void setNgayHetHan(String ngayHetHan)              //Phương thức setNgayHetHan
 public String toString()                        //Phương thức toString
 
+## Sơ đồ thuật toán 
+![image](https://github.com/user-attachments/assets/b62c2eba-007b-47e0-91d4-c21b78553bb8)
