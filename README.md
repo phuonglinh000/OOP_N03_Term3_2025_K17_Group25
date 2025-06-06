@@ -170,12 +170,18 @@ public class BookList {
 
 ## Miêu tả phương thức 
 public MuonSach(String maSach, String maThanhVien, String ngayMuon, String ngayHetHan)
-public String getMaSach()                  //Phương thức getMaSach
-public String getMaThanhVien()            //Phương thức getMaThanhVien
-public String getNgayMuon()              //Phương thức getNgayMuon
-public String getNgayHetHan()           //Phương thức getNgayHetHan
-public void setNgayHetHan(String ngayHetHan)              //Phương thức setNgayHetHan
-public String toString()                        //Phương thức toString
+//Phương thức getMaSach
+public String getMaSach()    
+//Phương thức getMaThanhVien
+public String getMaThanhVien()          
+ //Phương thức getNgayMuon
+public String getNgayMuon()             
+//Phương thức getNgayHetHan
+public String getNgayHetHan()    
+ //Phương thức setNgayHetHan
+public void setNgayHetHan(String ngayHetHan)   
+ //Phương thức toString
+public String toString()                       
 
 ## Sơ đồ thuật toán 
 ![image](https://github.com/user-attachments/assets/b62c2eba-007b-47e0-91d4-c21b78553bb8)
