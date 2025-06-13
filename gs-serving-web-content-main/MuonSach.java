@@ -1,4 +1,4 @@
-package quanlithuvien;
+package gs.serving.web.content.main;
 
 public class MuonSach {
     private String maSach;

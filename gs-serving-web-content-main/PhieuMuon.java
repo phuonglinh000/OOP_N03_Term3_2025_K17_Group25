@@ -1,4 +1,4 @@
-package quanlithuvien;
+package gs.serving.web.content.main;
 
 import java.io.Serializable;
 import java.time.LocalDate;
