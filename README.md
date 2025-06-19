@@ -190,3 +190,8 @@ public String toString()
 
 ## Sơ đồ thuật toán 
 ![image](https://github.com/user-attachments/assets/b62c2eba-007b-47e0-91d4-c21b78553bb8)
+
+## Giao diện kiểm tra
+![Kiểm tra](kiemtra.png)
+
+![Kết quả](ketqua.png)
