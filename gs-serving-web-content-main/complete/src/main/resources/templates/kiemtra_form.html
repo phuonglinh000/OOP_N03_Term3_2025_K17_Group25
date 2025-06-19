@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Kiểm tra sách đến hạn</title></head>
+<body>
+<h2>🔍 Kiểm tra sách gần đến hạn trả</h2>
+<form method="post" th:action="@{/kiemtra}">
+    <label>Nhập họ tên bạn đọc:</label>
+    <input type="text" name="hoTen" required />
+    <button type="submit">Kiểm tra</button>
+</form>
+</body>
+</html>
