@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết quả kiểm tra sách</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .book-card {
+            background: #ecf0f1;
+            border-left: 6px solid #3498db;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .no-result {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Kết quả kiểm tra sách của <span th:text="${hoTen}">Quỳnh Anh</span></h2>
+
+    <p class="no-result" th:if="${!found}">
+        Không có sách nào sắp đến hạn trong 3 ngày tới.
+    </p>
+
+    <div th:each="msg : ${ketQua}" class="book-card">
+        <p th:utext="${msg}">Thông tin sách</p>
+    </div>
+
+    <a th:href="@{/kiemtra}" class="back-link">← Quay lại</a>
+</div>
+</body>
+</html>

@@ -2,8 +2,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +9,7 @@ import java.util.List;
 public class KiemTraController {
 
     @GetMapping("/kiemtra")
+
     public String hienForm() {
         return "kiemtra_form"; 
     }
@@ -18,32 +17,43 @@ public class KiemTraController {
     @PostMapping("/kiemtra")
     public String xuLyKiemTra(@RequestParam("hoTen") String hoTen, Model model) {
         List<MuonSach> danhSach = MuonSachData.danhSachMuon; 
+=======
+    public String hienFormNhap() {
+        return "kiemtra-form";
+    }
+
+    @PostMapping("/kiemtra")
+    public String xuLyForm(@RequestParam String hoTen, Model model) {
+
         List<String> ketQua = new ArrayList<>();
         boolean found = false;
 
         try {
-            LocalDate today = LocalDate.now();
-
-            for (MuonSach m : danhSach) {
+            for (MuonSach m : MuonSachData.danhSachMuon) {
                 if (m.getHoTen().equalsIgnoreCase(hoTen)) {
-                    long daysLeft = ChronoUnit.DAYS.between(today, m.getNgayHetHan());
+                    long daysLeft = java.time.temporal.ChronoUnit.DAYS.between(
+                        java.time.LocalDate.now(), m.getNgayHetHan());
                     if (daysLeft <= 3 && daysLeft >= 0) {
                         found = true;
-                        ketQua.add("Tên sách: " + m.toString() + "<br>Còn " + daysLeft + " ngày đến hạn trả<br><br>");
+                        ketQua.add(
+                            "<strong>" + m.toString().replace("\n", "<br>") + "</strong><br>" +
+                            "<span style='color:red;'>Còn " + daysLeft + " ngày đến hạn</span><br>"
+                        );
                     }
                 }
             }
-
         } catch (Exception e) {
-            model.addAttribute("error", "Lỗi: " + e.getMessage());
+            ketQua.clear();
+            ketQua.add("<span style='color:red;'>Lỗi khi kiểm tra: " + e.getMessage() + "</span>");
+            found = false;
         } finally {
-            System.out.println("Đã kiểm tra sách đến hạn cho " + hoTen);
+            System.out.println(">> Kiểm tra sách đến hạn đã hoàn tất cho: " + hoTen);
         }
 
-        model.addAttribute("ketQua", ketQua);
         model.addAttribute("hoTen", hoTen);
+        model.addAttribute("ketQua", ketQua);
         model.addAttribute("found", found);
 
-        return "ketqua_kiemtra";
+        return "kiemtra";
     }
 }
