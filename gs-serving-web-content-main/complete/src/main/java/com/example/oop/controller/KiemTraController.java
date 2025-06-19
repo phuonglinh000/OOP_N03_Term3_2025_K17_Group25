@@ -12,12 +12,12 @@ public class KiemTraController {
 
     @GetMapping("/kiemtra")
     public String hienForm() {
-        return "kiemtra_form"; // form nhập họ tên
+        return "kiemtra_form"; 
     }
 
     @PostMapping("/kiemtra")
     public String xuLyKiemTra(@RequestParam("hoTen") String hoTen, Model model) {
-        List<MuonSach> danhSach = MuonSachData.danhSachMuon; // danh sách mượn đã có
+        List<MuonSach> danhSach = MuonSachData.danhSachMuon; 
         List<String> ketQua = new ArrayList<>();
         boolean found = false;
 
