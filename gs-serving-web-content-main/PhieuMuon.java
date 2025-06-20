@@ -3,6 +3,8 @@ package gs.serving.web.content.main;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import com.example.servingwebcontent.Sach;
+
 public class PhieuMuon implements Serializable {
     private String maPhieu;
     private String tenDocGia;

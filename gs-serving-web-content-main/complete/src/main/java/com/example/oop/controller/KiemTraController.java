@@ -1,59 +1,53 @@
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+// package com.example.servingwebcontent;
 
-import java.util.ArrayList;
-import java.util.List;
+// import org.springframework.stereotype.Controller;
+// import org.springframework.ui.Model;
+// import org.springframework.web.bind.annotation.*;
 
-@Controller
-public class KiemTraController {
+// import java.util.ArrayList;
+// import java.util.List;
 
-    @GetMapping("/kiemtra")
+// @Controller
+// public class KiemTraController {
 
-    public String hienForm() {
-        return "kiemtra_form"; 
-    }
+//     @GetMapping("/kiemtra")
+//     public String hienForm() {
+//         return "kiemtra_form"; 
+//     }
 
-    @PostMapping("/kiemtra")
-    public String xuLyKiemTra(@RequestParam("hoTen") String hoTen, Model model) {
-        List<MuonSach> danhSach = MuonSachData.danhSachMuon; 
-=======
-    public String hienFormNhap() {
-        return "kiemtra-form";
-    }
+//     @PostMapping("/kiemtra")
+//     public String xuLyForm(@RequestParam String hoTen, Model model) {
 
-    @PostMapping("/kiemtra")
-    public String xuLyForm(@RequestParam String hoTen, Model model) {
+//         List<String> ketQua = new ArrayList<>();
+//         boolean found = false;
 
-        List<String> ketQua = new ArrayList<>();
-        boolean found = false;
+//         try {
+//             for (MuonSach m : MuonSachData.danhSachMuon) {
+//                 if (m.getHoTen().equalsIgnoreCase(hoTen)) {
+//                     long daysLeft = java.time.temporal.ChronoUnit.DAYS.between(
+//                         java.time.LocalDate.now(), m.getNgayHetHan());
+//                     if (daysLeft <= 3 && daysLeft >= 0) {
+//                         found = true;
+//                         ketQua.add(
+//                             "<strong>" + m.toString().replace("\n", "<br>") + "</strong><br>" +
+//                             "<span style='color:red;'>Còn " + daysLeft + " ngày đến hạn</span><br>"
+//                         );
+//                     }
+//                 }
+//             }
+//         } catch (Exception e) {
+//             ketQua.clear();
+//             ketQua.add("<span style='color:red;'>Lỗi khi kiểm tra: " + e.getMessage() + "</span>");
+//             found = false;
+//         } finally {
+//             System.out.println(">> Kiểm tra sách đến hạn đã hoàn tất cho: " + hoTen);
+//         }
 
-        try {
-            for (MuonSach m : MuonSachData.danhSachMuon) {
-                if (m.getHoTen().equalsIgnoreCase(hoTen)) {
-                    long daysLeft = java.time.temporal.ChronoUnit.DAYS.between(
-                        java.time.LocalDate.now(), m.getNgayHetHan());
-                    if (daysLeft <= 3 && daysLeft >= 0) {
-                        found = true;
-                        ketQua.add(
-                            "<strong>" + m.toString().replace("\n", "<br>") + "</strong><br>" +
-                            "<span style='color:red;'>Còn " + daysLeft + " ngày đến hạn</span><br>"
-                        );
-                    }
-                }
-            }
-        } catch (Exception e) {
-            ketQua.clear();
-            ketQua.add("<span style='color:red;'>Lỗi khi kiểm tra: " + e.getMessage() + "</span>");
-            found = false;
-        } finally {
-            System.out.println(">> Kiểm tra sách đến hạn đã hoàn tất cho: " + hoTen);
-        }
+//         model.addAttribute("hoTen", hoTen);
+//         model.addAttribute("ketQua", ketQua);
+//         model.addAttribute("found", found);
 
-        model.addAttribute("hoTen", hoTen);
-        model.addAttribute("ketQua", ketQua);
-        model.addAttribute("found", found);
+//         return "kiemtra"; 
+//     }
+// }
 
-        return "kiemtra";
-    }
-}

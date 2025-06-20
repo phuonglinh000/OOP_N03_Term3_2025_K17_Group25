@@ -2,29 +2,20 @@ package com.example.servingwebcontent;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.time.LocalDate;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PhieuMuonController {
 
-    @GetMapping("/phieu-muon")
-    public String hienThiPhieu(Model model) {
-        
-        String maPhieu = "01";
-        String tenDocGia = "Linh";
-        String tenSach = "Java";
-        LocalDate ngayMuon = LocalDate.now();
-        LocalDate ngayTra = ngayMuon.plusDays(7);
+    @GetMapping("/form")
+    public String form(Model model) {
+        model.addAttribute("phieuMuon", new PhieuMuon());
+        return "phieumuon-form";
+    }
 
-        
-        model.addAttribute("maPhieu", maPhieu);
-        model.addAttribute("tenDocGia", tenDocGia);
-        model.addAttribute("tenSach", tenSach);
-        model.addAttribute("ngayMuon", ngayMuon);
-        model.addAttribute("ngayTra", ngayTra);
-
-        return "phieu-muon"; 
+    @PostMapping("/submit")
+    public String submit(@ModelAttribute PhieuMuon phieuMuon, Model model) {
+        model.addAttribute("phieuMuon", phieuMuon);
+        return "xemphieu";
     }
 }

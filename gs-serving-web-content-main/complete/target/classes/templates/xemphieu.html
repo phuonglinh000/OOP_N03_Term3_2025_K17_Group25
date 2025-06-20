@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin phiếu mượn</title>
+</head>
+<body>
+    <h2>Thông tin phiếu mượn:</h2>
+
+    <p>Độc giả: <b th:text="${phieuMuon.tenDocGia}"></b></p>
+    <p>Sách: <b th:text="${phieuMuon.sach.tenSach}"></b></p>
+    <p>Ngày mượn: <b th:text="${phieuMuon.ngayMuon}"></b></p>
+    <p>Ngày trả: <b th:text="${phieuMuon.ngayTra}"></b></p>
+
+</body>
+</html>
