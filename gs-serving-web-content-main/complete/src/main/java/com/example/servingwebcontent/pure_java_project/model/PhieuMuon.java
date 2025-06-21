@@ -3,34 +3,17 @@ package com.example.servingwebcontent.pure_java_project.model;
 import java.time.LocalDate;
 
 public class PhieuMuon {
-    private String maPhieu;
-    private String tenNguoiMuon;
-    private String maSach;
-    private LocalDate ngayMuon;
+    private String maSach;          // Mã sách
+    private String tenNguoiMuon;    // Người mượn
+    private LocalDate ngayMuon;     // Ngày mượn
 
-    public PhieuMuon() {}
+    public PhieuMuon() {
+    }
 
-    public PhieuMuon(String maPhieu, String tenNguoiMuon, String maSach, LocalDate ngayMuon) {
-        this.maPhieu = maPhieu;
-        this.tenNguoiMuon = tenNguoiMuon;
+    public PhieuMuon(String maSach, String tenNguoiMuon, LocalDate ngayMuon) {
         this.maSach = maSach;
-        this.ngayMuon = ngayMuon;
-    }
-
-    public String getMaPhieu() {
-        return maPhieu;
-    }
-
-    public void setMaPhieu(String maPhieu) {
-        this.maPhieu = maPhieu;
-    }
-
-    public String getTenNguoiMuon() {
-        return tenNguoiMuon;
-    }
-
-    public void setTenNguoiMuon(String tenNguoiMuon) {
         this.tenNguoiMuon = tenNguoiMuon;
+        this.ngayMuon = ngayMuon;
     }
 
     public String getMaSach() {
@@ -39,6 +22,14 @@ public class PhieuMuon {
 
     public void setMaSach(String maSach) {
         this.maSach = maSach;
+    }
+
+    public String getTenNguoiMuon() {
+        return tenNguoiMuon;
+    }
+
+    public void setTenNguoiMuon(String tenNguoiMuon) {
+        this.tenNguoiMuon = tenNguoiMuon;
     }
 
     public LocalDate getNgayMuon() {
