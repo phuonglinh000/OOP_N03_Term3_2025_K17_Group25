@@ -82,6 +82,7 @@
             <input type="text" th:field="*{maSach}" placeholder="Mã sách" required/>
             <input type="text" th:field="*{tenNguoiMuon}" placeholder="Tên người mượn" required/>
             <input type="date" th:field="*{ngayMuon}" required/>
+            <input type="date" th:field="*{ngayTra}" required/> <!-- ✅ thêm trường ngày trả -->
             <button type="submit">Tạo phiếu</button>
         </form>
     </div>
@@ -93,11 +94,13 @@
                 <th>Mã sách</th>
                 <th>Người mượn</th>
                 <th>Ngày mượn</th>
+                <th>Ngày trả</th> <!-- ✅ thêm cột -->
             </tr>
             <tr th:each="p : ${danhSachPhieu}">
                 <td th:text="${p.maSach}"></td>
                 <td th:text="${p.tenNguoiMuon}"></td>
                 <td th:text="${p.ngayMuon}"></td>
+                <td th:text="${p.ngayTra}"></td> <!-- ✅ hiển thị ngày trả -->
             </tr>
         </table>
     </div>
