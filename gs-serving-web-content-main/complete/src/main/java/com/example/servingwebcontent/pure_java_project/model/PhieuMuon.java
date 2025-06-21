@@ -1,65 +1,51 @@
-package com.example.servingwebcontent;
+package com.example.servingwebcontent.pure_java_project.model;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class PhieuMuon implements Serializable {
+public class PhieuMuon {
     private String maPhieu;
-    private String tenDocGia;
-    private Sach sach;
+    private String tenNguoiMuon;
+    private String maSach;
     private LocalDate ngayMuon;
-    private LocalDate ngayTra;
 
-    public PhieuMuon() {
-        this.ngayMuon = LocalDate.now();
-        this.ngayTra = ngayMuon.plusDays(7);
-    }
+    public PhieuMuon() {}
 
-    public PhieuMuon(String maPhieu, String tenDocGia, Sach sach) {
+    public PhieuMuon(String maPhieu, String tenNguoiMuon, String maSach, LocalDate ngayMuon) {
         this.maPhieu = maPhieu;
-        this.tenDocGia = tenDocGia;
-        this.sach = sach;
-        this.ngayMuon = LocalDate.now();
-        this.ngayTra = ngayMuon.plusDays(7); 
+        this.tenNguoiMuon = tenNguoiMuon;
+        this.maSach = maSach;
+        this.ngayMuon = ngayMuon;
     }
 
-    public String getMaPhieu() { return maPhieu; }
-    public void setMaPhieu(String maPhieu) { this.maPhieu = maPhieu; }
-
-    public String getTenDocGia() { return tenDocGia; }
-    public void setTenDocGia(String tenDocGia) { this.tenDocGia = tenDocGia; }
-
-    public Sach getSach() { return sach; }
-    public void setSach(Sach sach) { this.sach = sach; }
-
-    public LocalDate getNgayMuon() { return ngayMuon; }
-    public void setNgayMuon(LocalDate ngayMuon) { this.ngayMuon = ngayMuon; }
-
-    public LocalDate getNgayTra() { return ngayTra; }
-    public void setNgayTra(LocalDate ngayTra) { this.ngayTra = ngayTra; }
-
-    public void inPhieu() {
-        try {
-            System.out.println("===== PHIEU MUON SACH =====");
-            System.out.println("Ma phieu: " + maPhieu);
-            System.out.println("Ten doc gia: " + tenDocGia);
-            if (sach != null) sach.hienThiThongTin();
-            System.out.println("Ngay muon: " + ngayMuon);
-            System.out.println("Ngay tra: " + ngayTra);
-        } catch (Exception e) {
-            System.err.println("Lỗi khi in phiếu mượn: " + e.getMessage());
-            e.printStackTrace();
-        } finally {
-            System.out.println("Đã thực hiện xong in phiếu mượn.");
-        }
+    public String getMaPhieu() {
+        return maPhieu;
     }
 
-    @Override
-    public String toString() {
-        return "Ma phieu: " + maPhieu + "\n" +
-               "Ten doc gia: " + tenDocGia + "\n" +
-               "Sach: " + (sach != null ? sach.getTenSach() : "Chưa chọn") + "\n" +
-               "Ngay muon: " + ngayMuon + "\n" +
-               "Ngay tra: " + ngayTra + "\n";
+    public void setMaPhieu(String maPhieu) {
+        this.maPhieu = maPhieu;
+    }
+
+    public String getTenNguoiMuon() {
+        return tenNguoiMuon;
+    }
+
+    public void setTenNguoiMuon(String tenNguoiMuon) {
+        this.tenNguoiMuon = tenNguoiMuon;
+    }
+
+    public String getMaSach() {
+        return maSach;
+    }
+
+    public void setMaSach(String maSach) {
+        this.maSach = maSach;
+    }
+
+    public LocalDate getNgayMuon() {
+        return ngayMuon;
+    }
+
+    public void setNgayMuon(LocalDate ngayMuon) {
+        this.ngayMuon = ngayMuon;
     }
 }
