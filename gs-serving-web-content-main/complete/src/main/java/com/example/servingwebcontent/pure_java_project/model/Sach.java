@@ -1,10 +1,10 @@
 package com.example.servingwebcontent.pure_java_project.model;
 
 public class Sach {
-    private String ma;         // Mã sách
-    private String ten;        // Tên sách
-    private String tacGia;     // Tác giả
-    private String theLoai;    // Thể loại
+    private String ma;         
+    private String ten;        
+    private String tacGia;     
+    private String theLoai;    
 
     public Sach() {
     }
