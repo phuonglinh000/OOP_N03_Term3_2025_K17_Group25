@@ -3,6 +3,7 @@ package com.example.servingwebcontent.pure_java_project.model;
 public class NguoiDung {
     private int id;
     private String ten;
+    private boolean daXoa = false; // ✅ Thuộc tính để đánh dấu xoá mềm
 
     // ✅ Constructor mặc định (cho Thymeleaf form binding)
     public NguoiDung() {
@@ -12,6 +13,7 @@ public class NguoiDung {
     public NguoiDung(int id, String ten) {
         this.id = id;
         this.ten = ten;
+        this.daXoa = false;
     }
 
     // Getter & Setter
@@ -29,5 +31,13 @@ public class NguoiDung {
 
     public void setTen(String ten) {
         this.ten = ten;
+    }
+
+    public boolean isDaXoa() {
+        return daXoa;
+    }
+
+    public void setDaXoa(boolean daXoa) {
+        this.daXoa = daXoa;
     }
 }
