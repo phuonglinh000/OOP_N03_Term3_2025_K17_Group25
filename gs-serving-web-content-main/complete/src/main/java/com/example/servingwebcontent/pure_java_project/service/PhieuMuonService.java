@@ -9,13 +9,13 @@ import java.util.List;
 @Service
 public class PhieuMuonService {
 
-    private List<PhieuMuon> danhSachChoXacNhan = new ArrayList<>();
+    private final List<PhieuMuon> danhSachChoXacNhan = new ArrayList<>();
 
     public void themPhieu(PhieuMuon phieuMuon) {
         danhSachChoXacNhan.add(phieuMuon);
     }
 
-    public List<PhieuMuon> layTatCaPhieu() {
-        return danhSachChoXacNhan;
+    public List<PhieuMuon> layTatCa() {
+        return new ArrayList<>(danhSachChoXacNhan);
     }
 }

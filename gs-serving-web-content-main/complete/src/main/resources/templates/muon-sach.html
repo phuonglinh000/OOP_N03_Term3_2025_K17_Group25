@@ -71,20 +71,27 @@
 <div class="form-container">
     <h2>Tạo Phiếu Mượn Sách</h2>
 
-    <form th:action="@{/muon-sach}" th:object="${phieuMuon}" method="post">
+    <form th:action="@{/muon-sach/them}" th:object="${phieuMuon}" method="post">
+
+        <!-- Tên người mượn -->
         <label for="tenNguoiMuon">Tên người mượn:</label>
-        <input type="text" id="tenNguoiMuon" name="nguoiDung.ten" th:value="*{nguoiDung.ten}" required />
+        <input type="text" id="tenNguoiMuon" th:field="*{nguoiDung.ten}" readonly />
+        <input type="hidden" th:field="*{nguoiDung.id}" />
 
+        <!-- Ngày mượn -->
         <label for="ngayMuon">Ngày mượn:</label>
-        <input type="date" id="ngayMuon" name="ngayMuon" th:value="*{ngayMuon}" required />
+        <input type="date" id="ngayMuon" th:field="*{ngayMuon}" required />
 
+        <!-- Tên sách -->
         <label for="tenSach">Tên sách:</label>
-        <input type="text" id="tenSach" name="sach.tenSach" th:value="*{sach.tenSach}" required />
+        <input type="text" id="tenSach" th:field="*{sach.tenSach}" required />
 
+        <!-- Tác giả -->
         <label for="tacGia">Tác giả:</label>
-        <input type="text" id="tacGia" name="sach.tacGia" th:value="*{sach.tacGia}" required />
+        <input type="text" id="tacGia" th:field="*{sach.tacGia}" required />
 
-        <button type="submit">Gửi Yêu Cầu Mượn</button>
+        <!-- Nút xác nhận -->
+        <button type="submit">Xác Nhận</button>
     </form>
 </div>
 
