@@ -7,11 +7,7 @@
         body {
             font-family: 'Segoe UI', sans-serif;
             background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            padding: 40px;
         }
 
         .form-container {
@@ -19,8 +15,8 @@
             padding: 35px 40px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            width: 100%;
-            max-width: 480px;
+            max-width: 500px;
+            margin-bottom: 40px;
         }
 
         h2 {
@@ -64,35 +60,80 @@
         button:hover {
             background-color: #218838;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #888;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="form-container">
     <h2>Tạo Phiếu Mượn Sách</h2>
-
     <form th:action="@{/muon-sach/them}" th:object="${phieuMuon}" method="post">
-
-        <!-- Tên người mượn -->
         <label for="tenNguoiMuon">Tên người mượn:</label>
         <input type="text" id="tenNguoiMuon" th:field="*{nguoiDung.ten}" readonly />
         <input type="hidden" th:field="*{nguoiDung.id}" />
 
-        <!-- Ngày mượn -->
         <label for="ngayMuon">Ngày mượn:</label>
         <input type="date" id="ngayMuon" th:field="*{ngayMuon}" required />
 
-        <!-- Tên sách -->
         <label for="tenSach">Tên sách:</label>
         <input type="text" id="tenSach" th:field="*{sach.tenSach}" required />
 
-        <!-- Tác giả -->
         <label for="tacGia">Tác giả:</label>
         <input type="text" id="tacGia" th:field="*{sach.tacGia}" required />
 
-        <!-- Nút xác nhận -->
         <button type="submit">Xác Nhận</button>
     </form>
+</div>
+
+<!-- Danh sách phiếu mượn -->
+<div class="form-container">
+    <h2>Danh Sách Phiếu Mượn</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Người mượn</th>
+            <th>Sách</th>
+            <th>Ngày mượn</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p, stat : ${dsPhieu}">
+            <td th:text="${stat.count}">1</td>
+            <td th:text="${p.nguoiDung.ten}">Tên người</td>
+            <td th:text="${p.sach.tenSach + ' - ' + p.sach.tacGia}">Sách - Tác giả</td>
+            <td th:text="${#temporals.format(p.ngayMuon, 'dd/MM/yyyy')}">01/01/2025</td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(dsPhieu)}">
+            <td colspan="4" class="no-data">Chưa có phiếu mượn nào.</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>

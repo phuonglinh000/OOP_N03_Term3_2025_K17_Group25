@@ -8,14 +8,17 @@ public class PhieuMuon {
     private Sach sach;
     private LocalDate ngayMuon;
     private LocalDate ngayTra;
+    private boolean daTra; // ✅ Trạng thái đã trả (true) hoặc chưa trả (false)
 
-    // ✅ Constructor mặc định (cần thiết cho Thymeleaf)
+    // ✅ Constructor mặc định – Cần thiết cho Thymeleaf form binding
     public PhieuMuon() {
         this.nguoiDung = new NguoiDung();
         this.sach = new Sach();
+        this.daTra = false; // Mặc định là chưa trả
     }
 
-    // Getters và Setters
+    // ======= Getters & Setters =======
+
     public NguoiDung getNguoiDung() {
         return nguoiDung;
     }
@@ -46,5 +49,13 @@ public class PhieuMuon {
 
     public void setNgayTra(LocalDate ngayTra) {
         this.ngayTra = ngayTra;
+    }
+
+    public boolean isDaTra() {
+        return daTra;
+    }
+
+    public void setDaTra(boolean daTra) {
+        this.daTra = daTra;
     }
 }

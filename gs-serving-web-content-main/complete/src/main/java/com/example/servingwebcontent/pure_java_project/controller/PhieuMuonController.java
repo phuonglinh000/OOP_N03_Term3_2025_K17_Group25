@@ -2,7 +2,6 @@ package com.example.servingwebcontent.pure_java_project.controller;
 
 import com.example.servingwebcontent.pure_java_project.model.NguoiDung;
 import com.example.servingwebcontent.pure_java_project.model.PhieuMuon;
-
 import com.example.servingwebcontent.pure_java_project.service.PhieuMuonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,24 +20,26 @@ public class PhieuMuonController {
     public PhieuMuonController(PhieuMuonService phieuMuonService) {
         this.phieuMuonService = phieuMuonService;
 
-        // Khởi tạo dữ liệu mẫu
+        // Dữ liệu mẫu
         dsNguoiDung.add(new NguoiDung(1, "Nguyễn Văn A"));
         dsNguoiDung.add(new NguoiDung(2, "Trần Thị B"));
     }
 
-    // ➤ Trang mặc định sẽ điều hướng đến form tạo
+    // Điều hướng mặc định
     @GetMapping
     public String chuyenHuongMacDinh() {
         return "redirect:/muon-sach/tao?idNguoiDung=1";
     }
 
-    // ➤ Hiển thị form tạo phiếu mượn
+    // Hiển thị form và danh sách
     @GetMapping("/tao")
-    public String hienThiForm(@RequestParam(defaultValue = "1") int idNguoiDung, Model model) {
+    public String hienThiForm(@RequestParam(defaultValue = "1") int idNguoiDung,
+                              Model model) {
+
         NguoiDung nguoiDung = dsNguoiDung.stream()
-                .filter(nd -> nd.getId() == idNguoiDung)
-                .findFirst()
-                .orElse(null);
+                                         .filter(nd -> nd.getId() == idNguoiDung)
+                                         .findFirst()
+                                         .orElse(null);
 
         if (nguoiDung == null) {
             model.addAttribute("error", "Không tìm thấy người dùng.");
@@ -49,20 +50,37 @@ public class PhieuMuonController {
         pm.setNguoiDung(nguoiDung);
 
         model.addAttribute("phieuMuon", pm);
-        return "muon-sach"; // View form tạo phiếu mượn
-    }
-
-    // ➤ Xử lý lưu phiếu mượn (không cần @RequestParam sachId nữa)
-    @PostMapping("/them")
-    public String luuPhieu(@ModelAttribute("phieuMuon") PhieuMuon phieuMuon) {
-        phieuMuonService.themPhieu(phieuMuon);
-        return "redirect:/muon-sach/danh-sach";
-    }
-
-    // ➤ Trang danh sách phiếu mượn
-    @GetMapping("/danh-sach")
-    public String hienThiDanhSach(Model model) {
         model.addAttribute("dsPhieu", phieuMuonService.layTatCa());
-        return "ds-phieu-muon"; // Tên file HTML hiển thị danh sách
+
+        return "phieu-muon";
+    }
+
+    // Xử lý lưu phiếu — Trả về view trực tiếp để tránh lỗi redirect 404
+    @PostMapping("/them")
+    public String luuPhieu(@ModelAttribute("phieuMuon") PhieuMuon phieuMuon,
+                           Model model) {
+
+        // Lưu phiếu mượn
+        phieuMuonService.themPhieu(phieuMuon);
+
+        // Lấy lại người dùng từ danh sách
+        NguoiDung nguoiDung = dsNguoiDung.stream()
+                                         .filter(nd -> nd.getId() == phieuMuon.getNguoiDung().getId())
+                                         .findFirst()
+                                         .orElse(null);
+
+        if (nguoiDung == null) {
+            model.addAttribute("error", "Không tìm thấy người dùng.");
+            return "error";
+        }
+
+        // Tạo mới object để làm sạch form
+        PhieuMuon pmMoi = new PhieuMuon();
+        pmMoi.setNguoiDung(nguoiDung);
+
+        model.addAttribute("phieuMuon", pmMoi);
+        model.addAttribute("dsPhieu", phieuMuonService.layTatCa());
+
+        return "phieu-muon"; // ⚠️ KHÔNG redirect để không bị lỗi 404
     }
 }

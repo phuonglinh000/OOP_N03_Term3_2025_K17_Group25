@@ -1,28 +1,40 @@
 package com.example.servingwebcontent.pure_java_project.controller;
 
-import com.example.servingwebcontent.pure_java_project.model.NguoiDung;
+import com.example.servingwebcontent.pure_java_project.model.PhieuMuon;
+import com.example.servingwebcontent.pure_java_project.service.PhieuMuonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/quan-ly")
 public class QuanLyController {
 
-    private List<NguoiDung> dsNguoiDung = new ArrayList<>();
+    private final PhieuMuonService phieuMuonService;
 
-    public QuanLyController() {
-        dsNguoiDung.add(new NguoiDung(1, "Nguyễn Văn A"));
-        dsNguoiDung.add(new NguoiDung(2, "Trần Thị B"));
+    public QuanLyController(PhieuMuonService phieuMuonService) {
+        this.phieuMuonService = phieuMuonService;
     }
 
-    @GetMapping("/nguoi-dung")
-    public String hienThiDanhSach(Model model) {
-        model.addAttribute("dsNguoiDung", dsNguoiDung);
-        return "nguoi-dung";
+    // ✅ Hiển thị tất cả phiếu mượn
+    @GetMapping("/phieu-muon")
+    public String hienThiTatCaPhieu(Model model) {
+        model.addAttribute("dsPhieu", phieuMuonService.layTatCa());
+        return "quan-ly-phieu";  // Giao diện hiển thị danh sách phiếu mượn
+    }
+
+    // ✅ Xoá phiếu mượn theo chỉ số
+    @PostMapping("/xoa")
+    public String xoaPhieu(@RequestParam int index) {
+        phieuMuonService.xoaPhieu(index);
+        return "redirect:/quan-ly/phieu-muon";
+    }
+
+    // ✅ Cập nhật trạng thái trả sách
+    @PostMapping("/cap-nhat")
+    public String capNhatTrangThai(@RequestParam int index,
+                                   @RequestParam boolean daTra) {
+        phieuMuonService.capNhatTrangThai(index, daTra);
+        return "redirect:/quan-ly/phieu-muon";
     }
 }
