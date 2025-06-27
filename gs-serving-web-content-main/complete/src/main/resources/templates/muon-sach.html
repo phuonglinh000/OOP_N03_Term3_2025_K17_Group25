@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Phiếu Mượn</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 35px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 480px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Tạo Phiếu Mượn Sách</h2>
+
+    <form th:action="@{/muon-sach}" th:object="${phieuMuon}" method="post">
+        <label for="tenNguoiMuon">Tên người mượn:</label>
+        <input type="text" id="tenNguoiMuon" name="nguoiDung.ten" th:value="*{nguoiDung.ten}" required />
+
+        <label for="ngayMuon">Ngày mượn:</label>
+        <input type="date" id="ngayMuon" name="ngayMuon" th:value="*{ngayMuon}" required />
+
+        <label for="tenSach">Tên sách:</label>
+        <input type="text" id="tenSach" name="sach.tenSach" th:value="*{sach.tenSach}" required />
+
+        <label for="tacGia">Tác giả:</label>
+        <input type="text" id="tacGia" name="sach.tacGia" th:value="*{sach.tacGia}" required />
+
+        <button type="submit">Gửi Yêu Cầu Mượn</button>
+    </form>
+</div>
+
+</body>
+</html>

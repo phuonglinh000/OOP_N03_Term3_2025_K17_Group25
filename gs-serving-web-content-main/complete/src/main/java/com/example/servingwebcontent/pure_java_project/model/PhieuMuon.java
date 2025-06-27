@@ -3,55 +3,33 @@ package com.example.servingwebcontent.pure_java_project.model;
 import java.time.LocalDate;
 
 public class PhieuMuon {
-    private String maSach;            // Mã sách
-    private String tenSach;           // ✅ Tên sách
-    private String tacGia;            // ✅ Tác giả
-    private String tenNguoiMuon;      // Người mượn
-    private LocalDate ngayMuon;       // Ngày mượn
-    private LocalDate ngayTra;        // Ngày trả
 
+    private NguoiDung nguoiDung;
+    private Sach sach;
+    private LocalDate ngayMuon;
+    private LocalDate ngayTra;
+
+    // ✅ Constructor mặc định (cần thiết cho Thymeleaf)
     public PhieuMuon() {
+        this.nguoiDung = new NguoiDung();
+        this.sach = new Sach();
     }
 
-    public PhieuMuon(String maSach, String tenSach, String tacGia, String tenNguoiMuon, LocalDate ngayMuon, LocalDate ngayTra) {
-        this.maSach = maSach;
-        this.tenSach = tenSach;
-        this.tacGia = tacGia;
-        this.tenNguoiMuon = tenNguoiMuon;
-        this.ngayMuon = ngayMuon;
-        this.ngayTra = ngayTra;
+    // Getters và Setters
+    public NguoiDung getNguoiDung() {
+        return nguoiDung;
     }
 
-    public String getMaSach() {
-        return maSach;
+    public void setNguoiDung(NguoiDung nguoiDung) {
+        this.nguoiDung = nguoiDung;
     }
 
-    public void setMaSach(String maSach) {
-        this.maSach = maSach;
+    public Sach getSach() {
+        return sach;
     }
 
-    public String getTenSach() {
-        return tenSach;
-    }
-
-    public void setTenSach(String tenSach) {
-        this.tenSach = tenSach;
-    }
-
-    public String getTacGia() {
-        return tacGia;
-    }
-
-    public void setTacGia(String tacGia) {
-        this.tacGia = tacGia;
-    }
-
-    public String getTenNguoiMuon() {
-        return tenNguoiMuon;
-    }
-
-    public void setTenNguoiMuon(String tenNguoiMuon) {
-        this.tenNguoiMuon = tenNguoiMuon;
+    public void setSach(Sach sach) {
+        this.sach = sach;
     }
 
     public LocalDate getNgayMuon() {

@@ -1,50 +1,52 @@
 package com.example.servingwebcontent.pure_java_project.model;
 
 public class Sach {
-    private String ma;         
-    private String ten;        
-    private String tacGia;     
-    private String theLoai;    
+    private int id;
+    private String tenSach;
+    private String tacGia;
+    private boolean daMuon = false;
 
+    // ✅ Constructor mặc định (cần cho Thymeleaf binding)
     public Sach() {
     }
 
-    public Sach(String ma, String ten, String tacGia, String theLoai) {
-        this.ma = ma;
-        this.ten = ten;
-        this.tacGia = tacGia;
-        this.theLoai = theLoai;
+    // ✅ Constructor đầy đủ
+    public Sach(int id, String tenSach) {
+        this.id = id;
+        this.tenSach = tenSach;
+        this.daMuon = false;
     }
 
-    public String getMa() {
-        return ma;
+    // Getters và Setters
+    public int getId() {
+        return id;
     }
 
-    public void setMa(String ma) {
-        this.ma = ma;
-    }
-
-    public String getTen() {
-        return ten;
-    }
-
-    public void setTen(String ten) {
-        this.ten = ten;
+    public String getTenSach() {
+        return tenSach;
     }
 
     public String getTacGia() {
         return tacGia;
     }
 
+    public boolean isDaMuon() {
+        return daMuon;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTenSach(String tenSach) {
+        this.tenSach = tenSach;
+    }
+
     public void setTacGia(String tacGia) {
         this.tacGia = tacGia;
     }
 
-    public String getTheLoai() {
-        return theLoai;
-    }
-
-    public void setTheLoai(String theLoai) {
-        this.theLoai = theLoai;
+    public void setDaMuon(boolean daMuon) {
+        this.daMuon = daMuon;
     }
 }
