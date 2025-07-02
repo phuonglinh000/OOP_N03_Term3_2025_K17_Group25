@@ -161,7 +161,7 @@ public class BookList {
 }
 ## activity datagram 
 
-![image](https://github.com/user-attachments/assets/b9061d96-6193-466b-b862-cd8b7d0bdfe1)
+![image](https://github.com/user-attachments/assets/517af5d5-7f59-4415-bba5-61a0efcdaaf9)
 
 ## 3 phương thức hoạt động chính 
     + Tìm kiếm sách 
