@@ -80,12 +80,12 @@ Tự động cập nhật trạng thái sách thành "Đã mượn" khi phiếu 
 
 ## Công nghệ sử dụng : 
 ```
-Thành phần	Công nghệ sử dụng
-Ngôn ngữ chính	Java
-Framework Backend	Spring Boot
+
+Ngôn ngữ chính	: Java
+Framework Backend :	Spring Boot
 Giao diện người dùng	Spring MVC + Thymeleaf
 Cơ sở dữ liệu	MySQL (lưu trữ trên nền tảng đám mây Aiven)
 Kết nối CSDL	Spring JDBC + @Value 
-Unit Test	JUnit, Mockito
 Quản lý dự án	Maven
+Hệ thống sử dụng kết nối trực tiếp đến cơ sở dữ liệu MySQL thông qua Spring JDBC, với các thông số cấu hình (url, username, password,...) được truyền vào thông qua annotation @Value từ file application.properties và .env
 ```
