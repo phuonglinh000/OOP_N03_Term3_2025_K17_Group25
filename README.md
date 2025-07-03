@@ -90,9 +90,10 @@ Quản lý dự án	Maven
 Hệ thống sử dụng kết nối trực tiếp đến cơ sở dữ liệu MySQL thông qua Spring JDBC, với các thông số cấu hình (url, username, password,...) được truyền vào thông qua annotation @Value từ file application.properties và .env
 ```
 ## Hướng phát triển
+```
 Quản trị dành cho thủ thư
 Giao diện riêng cho thủ thư để:
 Xem báo cáo thống kê hàng ngày
 Duyệt yêu cầu mượn/trả sách 
-
+```
 
