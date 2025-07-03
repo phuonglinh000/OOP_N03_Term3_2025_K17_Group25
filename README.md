@@ -192,11 +192,6 @@ public String toString()
 ![image](https://github.com/user-attachments/assets/d10beff7-8871-4a66-9715-d6c1ff3a5734)
 
 
-## Giao diện kiểm tra
-![Kiểm tra](kiemtra.png)
-
-![Kết quả](ketqua.png)
-
 ## Phiếu Mượn- Phương Linh 
 ![image](https://github.com/user-attachments/assets/5a64af0d-8c0f-43ab-a480-e46b5c12a947)
 
