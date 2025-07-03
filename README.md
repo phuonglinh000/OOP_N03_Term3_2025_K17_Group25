@@ -15,11 +15,12 @@ class Book {
 }
 
 
-class Librarian {
-  String id;
-  String name;
-  String email;
-  String phoneNumber;
+class PhieuMuon {
+  String id;
+  User nguoiMuon;    
+  Book sachDuocMuon; 
+  LocalDate ngayMuon;
+  LocalDate ngayTra;
 }
 
 class User {
