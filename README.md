@@ -189,7 +189,8 @@ public void setNgayHetHan(String ngayHetHan)
 public String toString()                       
 
 ## Sơ đồ thuật toán 
-![image](https://github.com/user-attachments/assets/b62c2eba-007b-47e0-91d4-c21b78553bb8)
+![image](https://github.com/user-attachments/assets/d10beff7-8871-4a66-9715-d6c1ff3a5734)
+
 
 ## Giao diện kiểm tra
 ![Kiểm tra](kiemtra.png)
