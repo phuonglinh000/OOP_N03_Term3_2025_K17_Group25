@@ -7,162 +7,62 @@
 
 ## Các đối tượng quản lý sách  : 
 ```
-class Book {
-  String id;
-  String title;
-  String author;
-  String category;  
-}
+1. Sách
+Đối tượng Book đại diện cho mỗi cuốn sách có trong thư viện, bao gồm các thông tin như:
+•	Id 
+•	tenSach
+•	tenTacGia
+2. User (Người dùng)
+Đối tượng User đại diện cho người sử dụng hệ thống (sinh viên, giảng viên,...), bao gồm:
+•	Id 
+•	Hoten
+•	Tuoi
+•	Gioitinh
+•	LienHe
+•	TaiKhoan
+•	MatKhau
 
-
-class PhieuMuon {
-  String id;
-  User nguoiMuon;    
-  Book sachDuocMuon; 
-  LocalDate ngayMuon;
-  LocalDate ngayTra;
-}
-
-class User {
-  String id;
-  String name;
-  String email;
-  String role; 
-}
-```
-
-
-## Folder Source Code của Project: 
-```
-src (
-    Book.java 
-    User.java
-    Admin.java)
-test (
-    BookTest.java
-    AdminTest.java
-    UserTest.java)
-README.md
-```
-
-
-Chương trình chính App.java (Main Program)
-```
-public class App {
-    public static void main(String[] args){
-        System.out.println("test main");
-
-        ex21_QA.test();
-        TestEx3_QA.test();
-
-    }
-}
+3. PhieuMuon (Phiếu mượn sách)
+Đối tượng PhieuMuon dùng để ghi lại mỗi lần mượn sách, liên kết giữa người dùng và sách. Mỗi phiếu mượn bao gồm:
+•	maPhieu
+•	ngayMuon
+•	ngayTra
+•	Sach 
 
 ```
 # Chi tiết kiểu mô tả của các đối tượng
 ```
-public class Admin {
-    String adminId;
-    String name;
+Quản lí sách : 
+Cập nhật thông tin sách: tên sách, tác giả, thể loại.
 
-    public Admin(String adminId, String name) {
-        this.adminId = adminId;
-        this.name = name;
-    }
+Cập nhật trạng thái sách khi người dùng mượn hoặc trả lại sách.
 
-    public void addBook(Book book) {
-        System.out.println("Admin " + name + " thêm sách: " + book.title);
-    }
+Cho phép người dùng xem danh sách các sách đang có sẵn để mượn.
 
-    public void removeBook(Book book) {
-        System.out.println("Admin " + name + "  xóa sách: " + book.title);
-    }
-}
 
-public class User {
-    String id;
-    String name; 
-    String email;
 
-    public User(String id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
+Quản lí người dùng
 
-    public void Info() {
-        System.out.println("ID: " + id);
-        System.out.println("Tên người dùng: " + name);
-        System.out.println("Email: " + email);
-    }
-}
+Xem thông tin cá nhân.
 
-public class Book {
-    String bookId;
-    String title;
-    String author;
+Xem danh sách phiếu mượn đã tạo.
 
-    public Book(String bookId, String title, String author) {
-        this.bookId = bookId;
-        this.title = title;
-        this.author = author;
-    }
+Thủ thư có thể tra cứu thông tin người dùng và lịch sử mượn sách của họ.
 
-    public void displayBook() {
-        System.out.println("Mã sách: " + bookId);
-        System.out.println("Tên sách: " + title);
-        System.out.println("Tác giả: " + author);
-    }
-}
+Quản lí phiếu mượn :
+Đăng kí tài khoản người dùng mới
+
+Tạo phiếu mượn mới: Khi người dùng chọn sách và thực hiện mượn, hệ thống sẽ tạo một phiếu mượn tương ứng.
+
+Lưu thông tin phiếu mượn vào hệ thống để phục vụ việc tra cứu và quản lý.
+
+Tự động cập nhật trạng thái sách thành "Đã mượn" khi phiếu được tạo.
 ```
-## Kiểm định (test)
-```
-public class TestEx3_QA {
 
-    // bien
-
-    // phuongthuc
-
-    public static void test() {
-
-        ex3_QA obj = new ex3_QA();
-
-        System.out.println("test khoi tao object kieu ex3_QA"+obj);
-        User u = new User("id01", "Quynh Anh", "qa@gmail.com");
-        u.Info();
-    }
-
-}
-
-```
 ## Class Diagram
 ![image](https://github.com/user-attachments/assets/4230702c-3deb-4d8d-847f-70bdb002ccbe)
 
 
-## thêm sách
-```
-public class Book {
-    String title;
-    String author;
-    int year;
-    
-    public Book(String title, String author, int year) {
-        this.title = title;
-        this.author = author;
-        this.year = year;
-    }
-}
-
-import java.util.ArrayList;
-public class BookList {
-    ArrayList<Book> books = new ArrayList<>();
-
-    public ArrayList<Book> addBook(Book book) {
-        books.add(book);
-        return books;
-    }
-}
-```
 ## activity datagram 
 
 ![image](https://github.com/user-attachments/assets/517af5d5-7f59-4415-bba5-61a0efcdaaf9)
