@@ -73,10 +73,19 @@ Tự động cập nhật trạng thái sách thành "Đã mượn" khi phiếu 
 
 ``
 
-
  
 ## Giao diện hệ thống 
 ![image](https://github.com/user-attachments/assets/b15ac7ab-ace9-46c6-878b-807c38b5dc25)
 
 
-
+## Công nghệ sử dụng : 
+```
+Thành phần	Công nghệ sử dụng
+Ngôn ngữ chính	Java
+Framework Backend	Spring Boot
+Giao diện người dùng	Spring MVC + Thymeleaf
+Cơ sở dữ liệu	MySQL (lưu trữ trên nền tảng đám mây Aiven)
+Kết nối CSDL	Spring JDBC + @Value 
+Unit Test	JUnit, Mockito
+Quản lý dự án	Maven
+```
