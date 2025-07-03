@@ -138,6 +138,7 @@ public class TestEx3_QA {
 ![image](https://github.com/user-attachments/assets/4230702c-3deb-4d8d-847f-70bdb002ccbe)
 
 ## thêm sách
+```
 public class Book {
     String title;
     String author;
@@ -168,7 +169,7 @@ public class BookList {
     + Cho mượn sách 
     + Thêm sách
 
-## Miêu tả phương thức 
+## Miêu tả phương thức `````
 public MuonSach(String maSach, String maThanhVien, String ngayMuon, String ngayHetHan)
 //Phương thức getMaSach
 public String getMaSach()   
