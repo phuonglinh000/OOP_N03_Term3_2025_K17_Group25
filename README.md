@@ -137,6 +137,7 @@ public class TestEx3_QA {
 ## Class Diagram
 ![image](https://github.com/user-attachments/assets/4230702c-3deb-4d8d-847f-70bdb002ccbe)
 
+
 ## thêm sách
 ```
 public class Book {
@@ -169,7 +170,7 @@ public class BookList {
     + Cho mượn sách 
     + Thêm sách
 
-## Miêu tả phương thức `````
+## Miêu tả phương thức 
 public MuonSach(String maSach, String maThanhVien, String ngayMuon, String ngayHetHan)
 //Phương thức getMaSach
 public String getMaSach()   
@@ -187,11 +188,13 @@ public String getNgayHetHan()
 public void setNgayHetHan(String ngayHetHan)   
 
  //Phương thức toString
-public String toString()                       
-
-## Sơ đồ thuật toán 
+public String toString()
+                 
+```
+## Sơ đồ thuật toán
 ![image](https://github.com/user-attachments/assets/d10beff7-8871-4a66-9715-d6c1ff3a5734)
 
+``
 
 
 ## Demo 
