@@ -192,11 +192,11 @@ public String toString()
 ![image](https://github.com/user-attachments/assets/d10beff7-8871-4a66-9715-d6c1ff3a5734)
 
 
-## Phiếu Mượn- Phương Linh 
-![image](https://github.com/user-attachments/assets/5a64af0d-8c0f-43ab-a480-e46b5c12a947)
 
-## Tạo phiếu - Phương Linh
-![image](https://github.com/user-attachments/assets/364f94ae-6a3a-450c-9321-335d29a62fd6)
+## Demo 
+# Giao diện hệ thống 
+![image](https://github.com/user-attachments/assets/b15ac7ab-ace9-46c6-878b-807c38b5dc25)
+
 
 
 
