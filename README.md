@@ -91,9 +91,14 @@ Hệ thống sử dụng kết nối trực tiếp đến cơ sở dữ liệu M
 ```
 ## Hướng phát triển
 ```
-Quản trị dành cho thủ thư
+Phân quyền quản trị cho thủ thư và người dùng
+
 Giao diện riêng cho thủ thư để:
 Xem báo cáo thống kê hàng ngày
-Duyệt yêu cầu mượn/trả sách 
+Duyệt yêu cầu mượn/trả sách
+
+Giao diện cho người dùng :
+Đăng nhập tài khoản xem lại thông tin phiếu mượn
+Thanh toán trực tiếp trên tài khoản
 ```
 
