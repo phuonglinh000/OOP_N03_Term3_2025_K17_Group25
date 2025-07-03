@@ -67,30 +67,6 @@ Tự động cập nhật trạng thái sách thành "Đã mượn" khi phiếu 
 
 ![image](https://github.com/user-attachments/assets/517af5d5-7f59-4415-bba5-61a0efcdaaf9)
 
-
-
-## Miêu tả phương thức 
-```
-public MuonSach(String maSach, String maThanhVien, String ngayMuon, String ngayHetHan)
-//Phương thức getMaSach
-public String getMaSach()   
-
-//Phương thức getMaThanhVien
-public String getMaThanhVien()  
-
- //Phương thức getNgayMuon
-public String getNgayMuon()    
-
-//Phương thức getNgayHetHan
-public String getNgayHetHan()  
-
- //Phương thức setNgayHetHan
-public void setNgayHetHan(String ngayHetHan)   
-
- //Phương thức toString
-public String toString()
-```
-
                  
 ## Sơ đồ thuật toán
 ![image](https://github.com/user-attachments/assets/d10beff7-8871-4a66-9715-d6c1ff3a5734)
