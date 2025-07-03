@@ -172,6 +172,7 @@ public class BookList {
     + Thêm sách
 
 ## Miêu tả phương thức 
+```
 public MuonSach(String maSach, String maThanhVien, String ngayMuon, String ngayHetHan)
 //Phương thức getMaSach
 public String getMaSach()   
@@ -190,9 +191,9 @@ public void setNgayHetHan(String ngayHetHan)
 
  //Phương thức toString
 public String toString()
-                 
+```
 
-``
+                 
 ## Sơ đồ thuật toán
 ![image](https://github.com/user-attachments/assets/d10beff7-8871-4a66-9715-d6c1ff3a5734)
 
