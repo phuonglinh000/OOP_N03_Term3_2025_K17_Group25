@@ -191,7 +191,8 @@ public void setNgayHetHan(String ngayHetHan)
  //Phương thức toString
 public String toString()
                  
-```
+
+``
 ## Sơ đồ thuật toán
 ![image](https://github.com/user-attachments/assets/d10beff7-8871-4a66-9715-d6c1ff3a5734)
 
@@ -201,7 +202,6 @@ public String toString()
 ## Demo 
 # Giao diện hệ thống 
 ![image](https://github.com/user-attachments/assets/b15ac7ab-ace9-46c6-878b-807c38b5dc25)
-
 
 
 
