@@ -81,21 +81,16 @@ Tự động cập nhật trạng thái sách thành "Đã mượn" khi phiếu 
 ## Công nghệ sử dụng : 
 ```
 
-Ngôn ngữ chính	: Java
-Framework Backend :	Spring Boot
-Giao diện người dùng	Spring MVC + Thymeleaf
-Cơ sở dữ liệu	MySQL (lưu trữ trên nền tảng đám mây Aiven)
-Kết nối CSDL	Spring JDBC + @Value 
-Quản lý dự án	Maven
-Hệ thống sử dụng kết nối trực tiếp đến cơ sở dữ liệu MySQL thông qua Spring JDBC, với các thông số cấu hình (url, username, password,...) được truyền vào thông qua annotation @Value từ file application.properties và .env
+Ngôn ngữ chính: Java
+Framework Backend: Spring Boot
+Giao diện người dùng: Spring MVC + Thymeleaf
+Cơ sở dữ liệu: MySQL (lưu trữ trên nền tảng đám mây Aiven)
+Kết nối CSDL: Spring JDBC + @Value (đọc cấu hình từ file .env)
+Quản lý dự án: Maven
+Quản lý cấu hình môi trường: .env kết hợp với Spring @Value và application.properties
+Kiến trúc triển khai: Ứng dụng web chạy độc lập trên nền tảng Spring Boot, truy cập trực tiếp cơ sở dữ liệu MySQL thông qua JDBC.
 ```
-## Hướng phát triển
-```
-Phân quyền quản trị cho thủ thư và người dùng
 
-Giao diện riêng cho thủ thư để:
-Xem báo cáo thống kê hàng ngày
-Duyệt yêu cầu mượn/trả sách
 
 Giao diện cho người dùng :
 Đăng nhập tài khoản xem lại thông tin phiếu mượn
