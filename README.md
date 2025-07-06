@@ -92,8 +92,3 @@ Kiến trúc triển khai: Ứng dụng web chạy độc lập trên nền tả
 ```
 
 
-Giao diện cho người dùng :
-Đăng nhập tài khoản xem lại thông tin phiếu mượn
-Thanh toán trực tiếp trên tài khoản
-```
-
