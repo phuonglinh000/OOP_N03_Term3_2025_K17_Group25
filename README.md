@@ -1,8 +1,17 @@
 # Quan ly thu vien sach 
+```
+# Cách sử dụng :
+File `.env` chứa **thông tin nhạy cảm như mật khẩu, đường dẫn kết nối database**, nếu đưa lên GitHub sẽ **gây rò rỉ bảo mật**.
+File `.env` được **bỏ qua bằng `.gitignore`** và chỉ cần tạo lại nó theo mẫu `.env.example` khi chạy ứng dụng.
+Cách tạo thêm một file tên là `.env` trong thư mục gốc của project (nằm cùng cấp với `pom.xml`).
+DB_URL=
+DB_USER=avnadmin
+DB_PASS=
+Thay DB_URL và DB_PASS bằng cloud trên Aiven.io
+```
+
 
 # 03 đối tượng
-
-
 
 
 ## Các đối tượng quản lý sách  : 
