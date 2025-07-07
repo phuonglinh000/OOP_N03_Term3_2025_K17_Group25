@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Phiếu Mượn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <!-- FORM TẠO PHIẾU -->
+        <div class="col-md-5">
+            <div class="bg-white p-4 rounded shadow">
+                <div class="text-end mb-3">
+                    <a href="/" class="btn btn-outline-secondary btn-sm">⬅️ Quay về Trang chủ</a>
+                </div>
+
+                <h4 class="mb-4 text-center">📄 Tạo Phiếu Mượn Sách</h4>
+
+                <!-- Thông báo -->
+                <div th:if="${thongBao}" class="alert text-center"
+                     th:classappend="${thanhCong} ? 'alert-success' : 'alert-danger'">
+                    <span th:text="${thongBao}"></span>
+                </div>
+
+                <form th:action="@{/phieu-muon/tao}" th:object="${phieuMuonMoi}" method="post">
+                    <input type="hidden" th:if="*{id != 0}" th:field="*{id}" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Người mượn:</label>
+                        <input type="text" class="form-control" th:value="*{tenNguoiMuon}" readonly />
+                        <input type="hidden" th:field="*{nguoiDungId}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tên sách:</label>
+                        <input type="text" id="tenSachInput" th:field="*{tenSach}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tác giả:</label>
+                        <input type="text" id="tacGiaInput" th:field="*{tacGia}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Ngày mượn:</label>
+                        <input type="date" id="ngayMuon" th:field="*{ngayMuon}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Ngày trả (tối đa 15 ngày sau ngày mượn):</label>
+                        <input type="date" id="ngayTra" th:field="*{ngayTra}" class="form-control" required>
+                    </div>
+
+                    <button type="submit"
+                            th:text="*{id != 0} ? 'Cập nhật phiếu' : 'Xác nhận'"
+                            class="btn btn-success w-100 fw-bold">
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- DANH SÁCH SÁCH + PHIẾU -->
+        <div class="col-md-6">
+            <div class="bg-white p-4 rounded shadow ms-md-4 mt-4 mt-md-0">
+                <h5 class="mb-3">📚 Chọn Sách Chưa Mượn</h5>
+
+                <!-- 🔍 THANH TÌM KIẾM -->
+                <input type="text" id="searchSach" class="form-control mb-3" placeholder="🔍 Tìm sách theo tên hoặc tác giả...">
+
+                <table class="table table-hover" id="bang-sach">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên sách</th>
+                        <th>Tác giả</th>
+                        <th>Chọn</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="sach : ${danhSachChuaMuon}">
+                        <td th:text="${sach.id}"></td>
+                        <td th:text="${sach.ten}"></td>
+                        <td th:text="${sach.tacGia}"></td>
+                        <td>
+                            <button type="button"
+                                    class="btn btn-outline-primary btn-sm"
+                                    th:attr="data-ten=${sach.ten}, data-tacgia=${sach.tacGia}"
+                                    onclick="chonSach(this)">
+                                Chọn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(danhSachChuaMuon)}">
+                        <td colspan="4" class="text-center text-muted">Không có sách nào chưa mượn.</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <hr class="my-4">
+
+                <h5 class="mb-3">🗂️ Phiếu mượn vừa tạo</h5>
+                <table class="table table-bordered table-striped">
+                    <thead class="table-secondary text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Người mượn</th>
+                        <th>Sách</th>
+                        <th>Ngày mượn</th>
+                        <th>Ngày trả</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${phieuMoiTao != null}">
+                        <td th:text="${phieuMoiTao.id}"></td>
+                        <td th:text="${phieuMoiTao.tenNguoiMuon}"></td>
+                        <td th:text="${phieuMoiTao.tenSach}"></td>
+                        <td th:text="${phieuMoiTao.ngayMuon}"></td>
+                        <td th:text="${phieuMoiTao.ngayTra}"></td>
+                        <td>
+                            <a th:href="@{'/phieu-muon/xoa/' + ${phieuMoiTao.id}}" class="btn btn-danger btn-sm"
+                               onclick="return confirm('Bạn chắc chắn muốn xoá phiếu này?');">Xoá</a>
+                        </td>
+                    </tr>
+                    <tr th:if="${phieuMoiTao == null}">
+                        <td colspan="6" class="text-center text-muted">Chưa có phiếu mượn nào được tạo.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script -->
+<script>
+    function chonSach(button) {
+        const ten = button.getAttribute('data-ten');
+        const tacGia = button.getAttribute('data-tacgia');
+        document.getElementById('tenSachInput').value = ten;
+        document.getElementById('tacGiaInput').value = tacGia;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const ngayMuonInput = document.getElementById('ngayMuon');
+        const ngayTraInput = document.getElementById('ngayTra');
+
+        ngayMuonInput.addEventListener('change', function () {
+            const ngayMuon = new Date(this.value);
+            if (isNaN(ngayMuon)) {
+                ngayTraInput.min = '';
+                ngayTraInput.max = '';
+                ngayTraInput.value = '';
+                return;
+            }
+
+            const maxNgayTra = new Date(ngayMuon);
+            maxNgayTra.setDate(maxNgayTra.getDate() + 15);
+
+            const formatDate = date => date.toISOString().split('T')[0];
+            ngayTraInput.min = formatDate(ngayMuon);
+            ngayTraInput.max = formatDate(maxNgayTra);
+
+            const currentNgayTra = new Date(ngayTraInput.value);
+            if (currentNgayTra < ngayMuon || currentNgayTra > maxNgayTra) {
+                ngayTraInput.value = '';
+            }
+        });
+
+        ngayMuonInput.dispatchEvent(new Event('change'));
+
+        document.getElementById("searchSach").addEventListener("input", function () {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll("#bang-sach tbody tr");
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(filter) ? "" : "none";
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
